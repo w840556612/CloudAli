@@ -1,9 +1,8 @@
-package com.buys.springcloud.OrderService.impl;
+package com.buys.springcloud.service.Impl;
 
+import com.buys.springcloud.service.OrderService;
 import com.buys.springcloud.dao.OrderDao;
 import com.buys.springcloud.entity.Order;
-import com.buys.springcloud.service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
