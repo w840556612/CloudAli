@@ -1,5 +1,9 @@
 package com.buys.springcloud.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.buys.springcloud.controller.exception.CommonFallback;
+import com.buys.springcloud.controller.exception.CommonHandler;
 import com.buys.springcloud.service.OrderService;
 import com.buys.springcloud.entity.Order;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +24,14 @@ public class OrderController {
     public Order queryOrderInfo(){
         return orderService.queryOrderInfo();
     }
+
+    @RequestMapping(value="testKey")
+    @SentinelResource(value="testKey0",blockHandlerClass = CommonHandler.class,blockHandler = "deal_testKey",
+            fallbackClass = CommonFallback.class,fallback = "deal_testKey")
+    public String testKey(String pp){
+        int a=10/0;
+        System.out.println(pp);
+        return "ok";
+    }
+
 }

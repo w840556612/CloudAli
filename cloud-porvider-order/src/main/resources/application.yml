@@ -15,6 +15,19 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8090
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: sentineltext
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.buys.springcloud.entity #所有Entity别名类所在包

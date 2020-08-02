@@ -9,3 +9,12 @@ spring:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
         prefix: allconfig
+
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8090
+
+feign:
+  sentinel:
+    enabled: true
